@@ -7,12 +7,14 @@ export default function Footer() {
   return (
     <div
       style={{
-        marginTop: "10px",
+        width: "100%",
+        marginTop: "20px",
       }}
     >
       <button
         onClick={setTheme}
         style={{
+          width: "100%",
           backgroundColor: theme === "light" ? "white" : "black",
           color: theme === "light" ? "black" : "white",
           outline: "none",

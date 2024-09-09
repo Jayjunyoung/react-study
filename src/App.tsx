@@ -34,7 +34,11 @@ function App() {
 
   return (
     <>
-      <div>
+      <div
+        style={{
+          width: "100%",
+        }}
+      >
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -56,7 +60,14 @@ function App() {
         </p>
       </div>
       <input ref={inputRef} />
-      <button onClick={inputClick}>input Ref 실습</button>
+      <button
+        style={{
+          marginLeft: "20px",
+        }}
+        onClick={inputClick}
+      >
+        input Ref 실습
+      </button>
       <ThemeContext.Provider
         value={{
           theme,
