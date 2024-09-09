@@ -1,12 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-interface FooterProps {
-  onClick: () => void;
-}
+export default function Footer() {
+  const { theme, setTheme } = useContext(ThemeContext);
 
-export default function Footer({ onClick }: FooterProps) {
-  const theme = useContext(ThemeContext);
   return (
     <div
       style={{
@@ -14,7 +11,7 @@ export default function Footer({ onClick }: FooterProps) {
       }}
     >
       <button
-        onClick={onClick}
+        onClick={setTheme}
         style={{
           backgroundColor: theme === "light" ? "white" : "black",
           color: theme === "light" ? "black" : "white",

@@ -28,6 +28,10 @@ function App() {
     console.log(name); // 아직 "junyoung2"
   }
 
+  const ToggleTheme = (): void => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
     <>
       <div>
@@ -53,10 +57,13 @@ function App() {
       </div>
       <input ref={inputRef} />
       <button onClick={inputClick}>input Ref 실습</button>
-      <ThemeContext.Provider value={theme}>
-        <Footer
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        />
+      <ThemeContext.Provider
+        value={{
+          theme,
+          setTheme: ToggleTheme,
+        }}
+      >
+        <Footer />
       </ThemeContext.Provider>
     </>
   );
