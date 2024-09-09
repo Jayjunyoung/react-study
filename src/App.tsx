@@ -1,11 +1,14 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import reactLogo from "./assets/react.svg";
+import Footer from "./components/Footer/Footer";
+import { ThemeContext } from "./context/ThemeContext";
 import viteLogo from "/vite.svg";
 
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("junyoung2");
+  const [theme, setTheme] = useState("light");
 
   let ref = useRef(0); //current객체 반환
   let inputRef = useRef<HTMLInputElement>(null);
@@ -50,9 +53,11 @@ function App() {
       </div>
       <input ref={inputRef} />
       <button onClick={inputClick}>input Ref 실습</button>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ThemeContext.Provider value={theme}>
+        <Footer
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        />
+      </ThemeContext.Provider>
     </>
   );
 }
